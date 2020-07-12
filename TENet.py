@@ -112,10 +112,10 @@ class TENet(nn.Module):
         # 先去除噪声
         noise = self.CNN_denoise(torch.unsqueeze(x.permute([2, 0, 1]), 0))
         noise =torch.squeeze(noise, 0).permute([1, 2, 0])
-        clean_x=noise  #直连
+        clean_x=noise 
         
         clean_x_flatten=clean_x.reshape([h * w, -1])
-        superpixels_flatten = torch.mm(self.norm_col_Q.t(), clean_x_flatten)  # 低频部分
+        superpixels_flatten = torch.mm(self.norm_col_Q.t(), clean_x_flatten) 
         hx = clean_x
         
         # CNN与GCN分两条支路
@@ -131,7 +131,7 @@ class TENet(nn.Module):
             H,A_1 = self.GCN_Layer_1(H,model='smoothed')
             H,A_2 = self.GCN_Layer_2(H,model='smoothed')
             
-        GCN_result = torch.matmul(self.Q, H)  # 这里self.norm_row_Q == self.Q
+        GCN_result = torch.matmul(self.Q, H)
         
         # 两组特征融合(两种融合方式)
         Y = torch.cat([GCN_result,CNN_result],dim=-1)
