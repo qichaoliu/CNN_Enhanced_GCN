@@ -361,7 +361,7 @@ for (FLAG, curr_train_ratio,Scale) in [(1,0.1,100)]:
                     available_label_count=available_label_idx.sum()#有效标签的个数
                     correct_prediction =torch.where(torch.argmax(network_output, 1) ==torch.argmax(train_samples_gt_onehot, 1),available_label_idx,zeros).sum()
                     OA= correct_prediction.cpu()/available_label_count
-                    OA=OA.numpy()
+                    OA=OA.cpu().numpy()
                     
                     # 计算AA
                     zero_vector = np.zeros([class_count])
