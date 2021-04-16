@@ -20,3 +20,6 @@ Q. Liu, L. Xiao, J. Yang and Z. Wei, "CNN-Enhanced Graph Convolutional Network W
 Or
 
 @ARTICLE{9268479,  author={Q. {Liu} and L. {Xiao} and J. {Yang} and Z. {Wei}},  journal={IEEE Transactions on Geoscience and Remote Sensing},   title={CNN-Enhanced Graph Convolutional Network With Pixel- and Superpixel-Level Feature Fusion for Hyperspectral Image Classification},   year={2020},  volume={},  number={},  pages={1-15},  doi={10.1109/TGRS.2020.3037361}}
+
+
+Note that the code is stinky and long.
